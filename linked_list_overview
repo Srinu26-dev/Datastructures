@@ -1,0 +1,64 @@
+list can be create in two ways --> 1. arrays 2.linked list
+
+1.arrays
+--------
+Statically allocated lists
+size cannot vary at run time
+data <size of array - wastage of memory
+data > size of array - overflow
+
+2.linked list
+--------------
+dynamically allocated lists
+size can vary at run time
+no memory wastage
+Elements can be inserted till memory is available
+
+single linked list 
+ info | link
+
+1.Nodes of single linked list not stored in contigious memory locations.node of linked list allocated at different times during runtime
+
+2.Elements of array are stored in contigious locations.this is because the whole array is allocated once at compile time
+
+implementation of single linked list
+struct node {
+       type1 member1 ;
+      type2 member2;
+      type3 member3;
+      .............
+      struct node *link;
+};
+self referential structure is a structure where we have a pointer member that can point to the structure of the same type. 
+e.g.
+struct node {
+ int x;
+ struct node *link;
+}
+e.g.2
+struct node 
+{
+ char name[10];
+ int id;
+float marks;
+struct node *link;
+};
+struct node 
+{
+struct employee emp;
+struct node *link;
+};
+struct node 
+{
+ int info;
+struct node *link;
+};
+
+
+
+
+
+
+
+
+

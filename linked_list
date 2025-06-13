@@ -1,1 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+ int info;
+struct node *link;
+}
+
+struct node *createList(struct node *start);
+void displayList(struct node *start);
+void countnodes(struct node *start);
+void search(struct node *start);
+struct node *insertInBeginning(struct node *start,int data);
+void insertAtEnd(struct node *start,int data);
+void insertAfter(sruct node *start , int data ,int x)
+struct node *insertBefore(struct node *start , int data , int x);
+struct node *insertAtPosition(struct node *start,int data ,int k);
+struct node *deletenode(struct node *start);
+struct node *reverseList(struct node *start);
+int main()
+{
+  struct node *start =NULL ;
+  int choice ,data,x,k;
+start =createList(start);
+while(1)
+{
+ printf("\n");
+ printf("1.Display list\n");
+ printf("2.count the number of nodes \n");
+ printf("3.search for an element\n);
+printf("4.Add to empty list /Add at beginning\n");
+printf("5.Add a node at end of the list\n");
+
+
+
 

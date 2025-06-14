@@ -1,0 +1,5 @@
+
+Reversing a doubly linked list
+p1 = start;
+p2=p1->next;
+p1

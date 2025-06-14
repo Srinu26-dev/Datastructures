@@ -1,0 +1,38 @@
+Deletion of the first node
+Deletion of the only node
+Deletion in between the list
+Deletion at the end
+
+pointer temp - point to node that is to be deleted
+Rearrange Links - remove node logically
+free(temp) 
+
+Deletion of the first node
+-------------------------
+temp =start;
+start = start->link
+free(temp)
+
+Deletion of the only node
+------------------------
+temp = start
+start = start->link
+free(temp)
+
+Deletion in between the list
+--------------------------
+make pointer point to predecessor of the node(which is going to deleted)
+temp = p->link;
+p->link=temp->link;
+free(temp)
+
+  
+Deletion at the end
+---------------------
+make pointer point to predecessor of the last node
+temp = p->link;
+p->link=temp->link;
+free(temp)
+
+
+  

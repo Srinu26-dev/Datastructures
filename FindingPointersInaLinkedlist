@@ -1,0 +1,50 @@
+Finding pointer to last node 
+Finding pointer to second last node
+Finding pointer to a node with particular info
+Finding pointer to predecessor of a node with particular info
+Finding pointer to node at a particular position
+
+
+Finding pointer to last node
+----------------------------
+p=start;
+while(p->link != NULL)
+  p=p->link;
+
+Finding pointer to second last node
+----------------------------------
+p=start;
+while(p->link->link!=NULL)
+  p=p->link
+
+Finding pointer to a node with particular info
+----------------------------------------------
+p=start
+while(p!=NULL)
+{
+  if(p->info ==x)
+      break;
+   p=p->link;
+}
+
+Finding pointer to predecessor of a node with particular info
+-------------------------------------------------------------
+p=start;
+while(p->link != NULL)
+{
+   if(p->link->info ==x)
+     break;
+   p= p->link)
+}
+
+
+Finding pointer to node at a particular position
+------------------------------------------------
+//suppose position : k=3
+int position;
+printf("enter the position)
+scanf("%d " ,&position)
+struct node *p;
+p=start
+for(i=1 ;i<position && p!=NULL ;i++)
+   p=p->link;

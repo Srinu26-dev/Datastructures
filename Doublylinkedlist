@@ -1,0 +1,27 @@
+doubly linked list 
+each node has three parts
+one info part , two link parts
+one link point to next node
+one link point to previous node
+for the first node previous link is NULL
+for the last node next  link is NULL
+
+struct node 
+{
+    struct node *prev;
+    int info ;
+    struct node *next;
+};
+
+Advantages
+------------
+can be traversed in both forward and backward directions
+implementation of some operatins easier;insertion and deletion can be done with a single pointer
+
+Disadvantages
+----------------
+Extra space is required for storing previous pointer
+While inserting and deleting, some extra steps are required for maintaining the previous pointer
+
+
+

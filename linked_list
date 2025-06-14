@@ -90,7 +90,7 @@ switch(choice)
   case 9:
    printf("Enter the element to be deleted :");
    scanf("%d",&data);
-  // start =deletenode(start ,data);
+   start =deletenode(start ,data);
    break;
   case 10 :
   // start =reverseList(start);
@@ -299,5 +299,45 @@ struct node *insertAtPosition(struct node *start , int data ,int k)
         }
          return start;  
 }
+struct node *deletenode(struct node *start , int x)
+{
+    struct node *temp,*p;
+    if(start == NULL)
+    {
+        printf("List is empty\n");
+        return start;
+    }
+    /*Deletion of first node*/
+    if(start->info == x)
+    {
+        temp = start;
+        start=start->link;
+        free(temp);
+        return start;
+    }
+    /*Deletion in between or at the end*/
+    p=start;
+    while(p->link!=NULL)
+    {
+        if(p->link->info == x)
+           break;
+        
+        p=p->link;
+    }
 
+
+    if(p->link == NULL)
+    {
+        printf("element %d not in list \n",x);
+
+    }
+    else
+    {
+    temp=p->link;
+    p->link=temp->link;
+    free(temp);
+    }
+    return start;
+
+}
 

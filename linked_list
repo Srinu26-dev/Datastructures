@@ -156,5 +156,53 @@ void search(struct node *start,int x)
   }
 
 }/*End of search */
+struct node *insertInBeginning(struct node *start,int data)
+{
+   struct node *temp;
+   temp=(struct node *)malloc(sizeof(struct node));
+   temp->info = data;
+   
+   temp->link =start;
+   start = temp;
+   
+   return start;
+}
+void insertAtEnd(struct node *start , int data)
+{
+  struct node *p , *temp;
+  temp = (struct node *)malloc(sizeof(struct node));
+  temp->info =data;
+ 
+  p=start;
+  while(p->link!=NULL)
+  {
+      p= p->link;
+  }
+  
+  p->link = temp;
+  temp->link = NULL;
+}
 
+struct node *createList(struct node *start)
+{
+  int i,n, data;
+  printf("Enter the number of nodes : ");
+  scanf("%d",&n);
+
+  if(n==0)
+      return start;
+  printf("Enter the first element to be inserted : ");
+  scanf("%d", &data);
+  start = insertAtBeginning(start ,data);
+
+  for(i=2 ; i<=n ;i++)
+  {
+     printf("Enter the next element to be inserted : ");
+     scanf("%d" ,&data);
+     insertAtEnd(start ,data);
+  }
+
+  return start ;
+}
+   
 

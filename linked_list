@@ -100,3 +100,61 @@ switch(choice)
 }
 }
 
+void DisplayList(struct node *start)
+{
+   struct node *p;
+   if(start==NULL)
+   {
+       printf("List is empty\n");
+       return;
+    }
+    printf("List is : ");
+
+   p=start;
+   while(p!=NULL)
+   {
+     printf("%d" ,p->info);
+     p= p->link;
+   }
+   printf("\n");
+}/*End of DisplayList */
+
+void  countnodes(struct node *start)
+{
+   int n=0;
+   struct node *p;
+   p=start;
+   while(p!=NULL)
+   {
+       n++;
+       p=p->link;
+   }
+   printf("Number of nodes in List =%d\n",n);
+}/*End of countNodes */
+
+void search(struct node *start,int x)
+{
+   int position=1;
+   struct node *p;
+   p=start;
+   while(p!=NULL)
+   {
+      if(p->info ==x)
+      {
+           break;
+      }
+      position ++;
+      p = p->link;
+  }
+  if(p==NULL)
+  {
+     printf( %d not found in list\n",x);
+  }
+  else
+  {
+      printf("%d is at position %d\n",x,position);
+  }
+
+}/*End of search */
+
+

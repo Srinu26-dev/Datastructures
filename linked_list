@@ -93,7 +93,7 @@ switch(choice)
    start =deletenode(start ,data);
    break;
   case 10 :
-  // start =reverseList(start);
+  start =reverseList(start);
   break;
   default :
    printf("wrong choice\n");
@@ -341,3 +341,18 @@ struct node *deletenode(struct node *start , int x)
 
 }
 
+struct node *reverseList(struct node *start)
+{
+    struct node *prev,*ptr ,*next;
+    prev =NULL;
+    ptr=start;
+    while(ptr!=NULL)
+    {
+        next =ptr->link;
+        ptr->link = prev;
+        prev=ptr;
+        ptr =next;
+    }
+    start = prev;
+    return start;
+}/*End of reverse List*/

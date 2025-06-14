@@ -1,1 +1,26 @@
-insertion
+insertion in the beginning
+insertion in an empty list
+insertion at the end
+insertion in between the list nodes
+
+struct node *temp;
+temp=(struct node *)malloc(sizeof(struct node));
+temp->info = data;
+
+
+insertion in the beginning /insertion in an empty list(order of two statements is very important)
+-------------------------
+temp->link = start;
+start = temp;
+
+
+insertion at the end
+-------------------------
+
+p=start;
+while(p->link !=NULL)
+  p=p->link
+
+//temp->link = p->link;
+p->link = temp;
+temp->link=NULL;

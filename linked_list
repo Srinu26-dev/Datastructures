@@ -4,20 +4,20 @@ struct node
 {
  int info;
 struct node *link;
-}
+};
 
 struct node *createList(struct node *start);
 void displayList(struct node *start);
 void countnodes(struct node *start);
-void search(struct node *start);
+void search(struct node *start,int data);
 struct node *insertInBeginning(struct node *start,int data);
 void insertAtEnd(struct node *start,int data);
-void insertAfter(sruct node *start , int data ,int x)
+void insertAfter(struct node *start , int data ,int x);
 struct node *insertBefore(struct node *start , int data , int x);
 struct node *insertAtPosition(struct node *start,int data ,int k);
-struct node *deletenode(struct node *start);
+struct node *deletenode(struct node *start,int data);
 struct node *reverseList(struct node *start);
-int main()
+void  main()
 {
   struct node *start =NULL ;
   int choice ,data,x,k;
@@ -27,7 +27,7 @@ while(1)
  printf("\n");
  printf("1.Display list\n");
  printf("2.count the number of nodes \n");
- printf("3.search for an element\n);
+ printf("3.search for an element\n");
 printf("4.Add to empty list /Add at beginning\n");
 printf("5.Add a node at end of the list\n");
 printf("6.Add a node after a specified node \n");
@@ -42,13 +42,14 @@ scanf("%d",&choice);
 
 if(choice ==11)
   break;
+  
 switch(choice)
 {
    case 1:
       displayList(start);
       break;
    case 2:
-     countNodes(start);
+     countnodes(start);
     break;
   case 3:
       printf("enter the element to be searched : ");
@@ -57,8 +58,8 @@ switch(choice)
       break;
   case 4:
       printf("Enter the element to be inserted :");
-      scanf("%d",&data)
-      start = insertAtBeginning(start ,data);
+      scanf("%d",&data);
+      start = insertInBeginning(start ,data);
       break;
   case 5:
       printf("Enter the element to be inserted :");
@@ -70,29 +71,29 @@ switch(choice)
      scanf("%d",&data);
      printf("Enter the element after which to insert :");
      scanf("%d",&x);
-     insertAfter(start,data,x);
+     //insertAfter(start,data,x);
      break;
   case 7:
      printf("Enter the element to be inserted :");
      scanf("%d",&data);
      printf("Enter the element before which to insert :");
     scanf("%d",&x);
-    start =insertBefore(start ,data ,x);
+    //start =insertBefore(start ,data ,x);
     break;
   case 8:
     printf("Enter the element to be inserted :");
     scanf("%d",&data);
     printf("Enter the position at which to insert :");
    scanf("%d",&k);
-   start =insertAtPosition(start ,data,k);
+  // start =insertAtPosition(start ,data,k);
    break;
   case 9:
    printf("Enter the element to be deleted :");
    scanf("%d",&data);
-   start =deleteNode(start ,data);
+  // start =deletenode(start ,data);
    break;
   case 10 :
-   start =reverseList(start);
+  // start =reverseList(start);
   break;
   default :
    printf("wrong choice\n");
@@ -100,7 +101,7 @@ switch(choice)
 }
 }
 
-void DisplayList(struct node *start)
+void displayList(struct node *start)
 {
    struct node *p;
    if(start==NULL)
@@ -113,7 +114,7 @@ void DisplayList(struct node *start)
    p=start;
    while(p!=NULL)
    {
-     printf("%d" ,p->info);
+     printf("%d  " ,p->info);
      p= p->link;
    }
    printf("\n");
@@ -148,7 +149,7 @@ void search(struct node *start,int x)
   }
   if(p==NULL)
   {
-     printf( %d not found in list\n",x);
+     printf( "%d not found in list\n",x);
   }
   else
   {
@@ -193,7 +194,7 @@ struct node *createList(struct node *start)
       return start;
   printf("Enter the first element to be inserted : ");
   scanf("%d", &data);
-  start = insertAtBeginning(start ,data);
+  start = insertInBeginning(start ,data);
 
   for(i=2 ; i<=n ;i++)
   {
@@ -205,4 +206,3 @@ struct node *createList(struct node *start)
   return start ;
 }
    
-

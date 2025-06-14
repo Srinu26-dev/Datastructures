@@ -1,0 +1,30 @@
+Deletion of the first node
+Deletion of the only node
+deletion in between the nodes
+deletion of last node
+
+
+Deletion of the first node
+-------------------------
+temp = start;
+start = start ->next;
+start->prev=NULL;
+free(temp)
+
+Deletion of the only node
+--------------------------
+temp = start;
+start = NULL;
+free(temp);
+
+Deletion in betweent the nodes
+-----------------------
+temp->prev->next = temp->next;
+temp->next->prev= temp->prev
+free(temp)
+
+deletion of last node
+----------------------
+make pointer point to last node
+temp->prev->next =NULL
+free(temp)

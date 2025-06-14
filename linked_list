@@ -28,11 +28,11 @@ while(1)
  printf("1.Display list\n");
  printf("2.count the number of nodes \n");
  printf("3.search for an element\n");
-printf("4.Add to empty list /Add at beginning\n");
-printf("5.Add a node at end of the list\n");
-printf("6.Add a node after a specified node \n");
-printf("7.Add a node before a specified node \n");
-printf("8.Add a node at given position\n");
+printf("4.insert in  empty list /insert in beginning of the list\n");
+printf("5.insert a node at end of the list\n");
+printf("6.insert a node after a specified node \n");
+printf("7.insert a node before a specified node \n");
+printf("8.insert a node at given position\n");
 printf("9.Delete a node \n");
 printf("10.Reverse the list\n");
 printf("11.Quit\n");
@@ -71,21 +71,21 @@ switch(choice)
      scanf("%d",&data);
      printf("Enter the element after which to insert :");
      scanf("%d",&x);
-     //insertAfter(start,data,x);
+     insertAfter(start,data,x);
      break;
   case 7:
      printf("Enter the element to be inserted :");
      scanf("%d",&data);
      printf("Enter the element before which to insert :");
     scanf("%d",&x);
-    //start =insertBefore(start ,data ,x);
+    start =insertBefore(start ,data ,x);
     break;
   case 8:
     printf("Enter the element to be inserted :");
     scanf("%d",&data);
     printf("Enter the position at which to insert :");
    scanf("%d",&k);
-  // start =insertAtPosition(start ,data,k);
+   start =insertAtPosition(start ,data,k);
    break;
   case 9:
    printf("Enter the element to be deleted :");
@@ -205,4 +205,99 @@ struct node *createList(struct node *start)
 
   return start ;
 }
-   
+
+void insertAfter(struct node *start , int data , int x)
+{
+    struct node *temp ,*p;
+    p=start;
+    while(p!=NULL)
+    {
+        if(p->info ==x)
+             break;
+        p=p->link;
+    }
+    if(p==NULL)
+       printf("%d not present in the list \n");
+    else
+    {
+       temp=(struct node *)malloc(sizeof(struct node));
+       temp->info = data;
+       temp->link=p->link;
+       p->link = temp;
+   }
+}
+
+struct node *insertBefore(struct node *start , int data , int x)
+{
+  
+    struct node *temp ,*p;
+
+    /* if list is empty */
+    if(start == NULL)
+    {
+       printf("List is empty\n");
+       return start;
+    }
+    /* x is in first node , new node is to be inserted before first node */
+    if(x == start->info)
+    {
+       temp=(struct node *)malloc(sizeof(struct node));
+       temp->info = data;
+       temp->link=start;
+       start = temp;
+       return start;
+    }
+    /* Find pointer to predecessor of node containing  x */
+    p=start;
+    while(p->link!=NULL)
+    {
+        if(p->link->info ==x)
+             break;
+        p=p->link;
+    }
+    if(p==NULL)
+       printf("%d not present in the list \n");
+    else
+    {
+       temp=(struct node *)malloc(sizeof(struct node));
+       temp->info = data;
+       temp->link=p->link;
+       p->link = temp;
+   }
+return start;
+
+}
+
+struct node *insertAtPosition(struct node *start , int data ,int k)
+{
+        struct node *temp ,*p;
+        int i;
+        if(k==1)
+        {
+            temp = (struct node *)malloc(sizeof(struct node));
+            temp->info =data;
+            temp->link =start;
+            start = temp;
+            return start;
+        }
+        p=start;
+        for(i=1 ;i<k-1 && p!=NULL ;i++) /*find a pointer to k-1 node*/
+        {
+            p=p->link;
+        }
+        if(p==NULL)
+        {
+            printf("you can insert only upto %d th position\n\n",i);
+        }
+        else
+        {
+            temp = (struct node *)malloc(sizeof(struct node));
+            temp->info =data;
+            temp->link =p->link;
+            p->link = temp;
+            
+        }
+         return start;  
+}
+
+

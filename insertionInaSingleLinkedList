@@ -2,6 +2,9 @@ insertion in the beginning
 insertion in an empty list
 insertion at the end
 insertion in between the list nodes
+insertion after a node
+insertion before a node
+insertion at a given position
 
 struct node *temp;
 temp=(struct node *)malloc(sizeof(struct node));
@@ -24,3 +27,55 @@ while(p->link !=NULL)
 //temp->link = p->link;
 p->link = temp;
 temp->link=NULL;
+
+
+
+insertion in between the list nodes(order of the statements isvery important)
+----------------------------------------
+
+temp->link = p->link;
+p->link = temp;
+
+
+insertion after a node
+----------------------
+ (x =56)  insert a new node after the node having value x 
+
+p= start ;
+while(p!=NULL)
+{
+     if(p->info == x)
+           break;
+    p= p->link;
+}
+temp->link = p->link;
+p->link = temp;
+
+insertion before a node
+--------------------------
+ (x =56)  insert a new node before the node having value x 
+
+p= start ;
+while(p->link!=NULL)
+{
+     if(p->link->info == x)
+           break;
+    p= p->link;
+}
+
+temp->link = p->link;
+p->link = temp;
+
+
+insertion at a given position
+-----------------------------
+(k=4) insert a new node at k th position in the list
+
+p = start 
+for(i= 1; i<k-1 && p!=NULL ;i++)
+  p= p->link
+
+temp->link = p->link;
+p->link = temp
+
+
